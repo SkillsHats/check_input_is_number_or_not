@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Check input field.</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	
+  <form action="" method="POST">
+      <div class="col-sm-12">
+        <div class="form-group">
+           <label><b>Enter an number</b></label>
+           <input type="text" id="number" name="num" class="form-control">
+           <span id="error"></span>
+        </div>
+      </div>
+  </form>
+  
+  <script>
+      // Check input is number or not!
+      $('#number').keypress(function(event){
+         if(event.which != 8 && isNaN(String.fromCharCode(event.which))){
+             event.preventDefault();
+             $('#error').text('Only Number allowed.');
+         } else {
+             $('#error').text('');
+         }
+     });
+  </script>
+</body>
+</html>
